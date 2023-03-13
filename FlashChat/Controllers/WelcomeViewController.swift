@@ -92,7 +92,7 @@ extension WelcomeViewController {
         
         NSLayoutConstraint.activate([
             registerButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            registerButton.topAnchor.constraint(equalTo: chatLabel.bottomAnchor, constant: 280),
+            registerButton.topAnchor.constraint(equalTo: chatLabel.bottomAnchor, constant: 270),
             registerButton.widthAnchor.constraint(equalToConstant: view.frame.width),
             registerButton.heightAnchor.constraint(equalToConstant: 48)
         ])
