@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  RegisterViewController.swift
 //  FlashChat
 //
 //  Created by Ildar Garifullin on 13/03/2023.
@@ -7,12 +7,9 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class RegisterViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-        view.backgroundColor = .red
     }
 }
-
