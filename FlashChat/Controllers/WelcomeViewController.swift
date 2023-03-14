@@ -30,6 +30,7 @@ class WelcomeViewController: UIViewController {
         button.tintColor = .white
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(registerButtonTaped), for: .touchUpInside)
+        
         return button
     }()
     
@@ -41,6 +42,7 @@ class WelcomeViewController: UIViewController {
         button.tintColor = .white
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(registerButtonTaped), for: .touchUpInside)
+        
         return button
     }()
 
