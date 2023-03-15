@@ -15,14 +15,16 @@ class ChatViewController: UIViewController {
     
     private let chatTableView: UITableView = {
         let tableView = UITableView()
-//        tableView.backgroundColor = .none
-//        tableView.separatorStyle = .none
+        tableView.backgroundColor = .none
+        tableView.separatorStyle = .none
         tableView.bounces = false
         tableView.showsVerticalScrollIndicator = false
         tableView.translatesAutoresizingMaskIntoConstraints = false
         
         return tableView
     }()
+    
+    var sendMessageUIView = SendMessageUIView()
     
     //MARK: - life cycle funcs
     
@@ -55,6 +57,7 @@ extension ChatViewController {
     
     private func setupViews() {
         view.addSubview(chatTableView)
+        view.addSubview(sendMessageUIView)
     }
 }
 
@@ -67,7 +70,17 @@ extension ChatViewController {
             chatTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             chatTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
             chatTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            chatTableView.heightAnchor.constraint(equalToConstant: 400)
+            chatTableView.bottomAnchor.constraint(equalTo: sendMessageUIView.topAnchor),
+            chatTableView.heightAnchor.constraint(equalToConstant: 700)
+        ])
+        
+        sendMessageUIView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            sendMessageUIView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            sendMessageUIView.topAnchor.constraint(equalTo: chatTableView.bottomAnchor),
+            sendMessageUIView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            sendMessageUIView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
 }
