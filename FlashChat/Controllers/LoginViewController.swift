@@ -89,7 +89,7 @@ extension LoginViewController {
     private func setConstraints() {
         NSLayoutConstraint.activate([
             emailTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            emailTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 60),
+            emailTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
             emailTextField.widthAnchor.constraint(equalToConstant: 300),
             emailTextField.heightAnchor.constraint(equalToConstant: 48)
         ])

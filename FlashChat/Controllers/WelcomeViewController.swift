@@ -61,12 +61,14 @@ class WelcomeViewController: UIViewController {
     
     @objc private func registerButtonTaped() {
         let registerViewController = RegisterViewController()
-        present(registerViewController, animated: true)
+        registerViewController.modalPresentationStyle = .fullScreen
+        navigationController?.pushViewController(registerViewController, animated: true)
     }
     
     @objc private func logInButtonTaped() {
         let loginViewController = LoginViewController()
-        present(loginViewController, animated: true)
+        loginViewController.modalPresentationStyle = .fullScreen
+        navigationController?.pushViewController(loginViewController, animated: true)
     }
     
     //MARK: - public
