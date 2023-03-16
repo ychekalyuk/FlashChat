@@ -55,6 +55,20 @@ class WelcomeViewController: UIViewController {
         
         setupViews()
         setConstraints()
+        
+        chatLabel.text = ""
+        
+        let chatLabel = "⚡️FlashChat"
+        var charIndex = 0
+        
+        chatLabel.map { letter in
+            Timer.scheduledTimer(
+                withTimeInterval: 0.2 * Double(charIndex),
+                repeats: false) { timer in
+                    self.chatLabel.text?.append(letter)
+                }
+            charIndex += 1
+        }
     }
     
     //MARK: - flow funcs
