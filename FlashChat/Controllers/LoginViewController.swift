@@ -64,7 +64,9 @@ class LoginViewController: UIViewController {
     //MARK: - flow funcs
     
     @objc private func loginButtonTaped() {
-        print("loginButtonTaped")
+        let chatViewController = ChatViewController()
+        chatViewController.modalPresentationStyle = .fullScreen
+        navigationController?.pushViewController(chatViewController, animated: true)
     }
     
     //MARK: - public

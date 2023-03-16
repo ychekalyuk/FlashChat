@@ -26,6 +26,8 @@ class ChatViewController: UIViewController {
     
     var sendMessageUIView = SendMessageUIView()
     
+    var navigationBar = UINavigationBar()
+    
     //MARK: - life cycle funcs
     
     override func viewDidLoad() {
@@ -58,6 +60,7 @@ extension ChatViewController {
     private func setupViews() {
         view.addSubview(chatTableView)
         view.addSubview(sendMessageUIView)
+        view.addSubview(navigationBar)
     }
 }
 
@@ -68,7 +71,7 @@ extension ChatViewController {
     private func setConstraints() {
         NSLayoutConstraint.activate([
             chatTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            chatTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
+            chatTableView.topAnchor.constraint(equalTo: navigationBar.bottomAnchor),
             chatTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             chatTableView.bottomAnchor.constraint(equalTo: sendMessageUIView.topAnchor),
             chatTableView.heightAnchor.constraint(equalToConstant: 700)

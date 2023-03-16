@@ -17,7 +17,7 @@ class SendMessageUIView: UIView {
         field.layer.cornerRadius = 4
         field.textColor = .black
         field.returnKeyType = .done
-        field.backgroundColor = .gray
+        field.backgroundColor = .white
         field.textAlignment = .left
         field.returnKeyType = .done
         field.translatesAutoresizingMaskIntoConstraints = false
@@ -43,7 +43,7 @@ class SendMessageUIView: UIView {
         setupViews()
         setConstraints()
         
-        backgroundColor = .red
+        backgroundColor = .systemBlue
     }
     
     required init?(coder: NSCoder) {

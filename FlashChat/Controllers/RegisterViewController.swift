@@ -64,7 +64,9 @@ class RegisterViewController: UIViewController {
     //MARK: - flow funcs
     
     @objc private func registerButtonTaped() {
-        print("loginButtonTaped")
+        let chatViewController = ChatViewController()
+        chatViewController.modalPresentationStyle = .fullScreen
+        navigationController?.pushViewController(chatViewController, animated: true)
     }
     
     //MARK: - public
