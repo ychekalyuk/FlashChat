@@ -60,11 +60,13 @@ class WelcomeViewController: UIViewController {
     //MARK: - flow funcs
     
     @objc private func registerButtonTaped() {
-        print("loginButtonTaped")
+        let registerViewController = RegisterViewController()
+        present(registerViewController, animated: true)
     }
     
     @objc private func logInButtonTaped() {
-        print("logInButtonTaped")
+        let loginViewController = LoginViewController()
+        present(loginViewController, animated: true)
     }
     
     //MARK: - public
