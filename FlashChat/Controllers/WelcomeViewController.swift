@@ -6,13 +6,14 @@
 //
 
 import UIKit
+import CLTypingLabel
 
 class WelcomeViewController: UIViewController {
     
     //MARK: - let/var
     
-    private let chatLabel: UILabel = {
-        let label = UILabel()
+    private let chatLabel: CLTypingLabel = {
+        let label = CLTypingLabel()
         label.text = "⚡️FlashChat"
         label.textColor = .black
         label.font = UIFont.systemFont(ofSize: 50)
@@ -56,19 +57,17 @@ class WelcomeViewController: UIViewController {
         setupViews()
         setConstraints()
         
-        chatLabel.text = ""
-        
-        let chatLabel = "⚡️FlashChat"
-        var charIndex = 0
-        
-        chatLabel.map { letter in
-            Timer.scheduledTimer(
-                withTimeInterval: 0.2 * Double(charIndex),
-                repeats: false) { timer in
-                    self.chatLabel.text?.append(letter)
-                }
-            charIndex += 1
-        }
+//        chatLabel.text = ""
+//        let chatLabel = "⚡️FlashChat"
+//        var charIndex = 0
+//        chatLabel.map { letter in
+//            Timer.scheduledTimer(
+//                withTimeInterval: 0.2 * Double(charIndex),
+//                repeats: false) { timer in
+//                    self.chatLabel.text?.append(letter)
+//                }
+//            charIndex += 1
+//        }
     }
     
     //MARK: - flow funcs
