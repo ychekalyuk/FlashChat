@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class RegisterViewController: UIViewController {
     
@@ -64,9 +65,19 @@ class RegisterViewController: UIViewController {
     //MARK: - flow funcs
     
     @objc private func registerButtonTaped() {
-        let chatViewController = ChatViewController()
-        chatViewController.modalPresentationStyle = .fullScreen
-        navigationController?.pushViewController(chatViewController, animated: true)
+        guard let email = emailTextField.text, let password = passwordTextField.text else {
+            return
+        }
+        
+        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+            if let error = error {
+                print(error)
+            } else {
+                let chatViewController = ChatViewController()
+                chatViewController.modalPresentationStyle = .fullScreen
+                self.navigationController?.pushViewController(chatViewController, animated: true)
+            }
+        }
     }
     
     //MARK: - public

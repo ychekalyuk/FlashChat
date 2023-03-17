@@ -18,6 +18,7 @@
 		6E830BC029BFA8D30048325D /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E830BBF29BFA8D30048325D /* RegisterViewController.swift */; };
 		6E830BC229BFA8E30048325D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E830BC129BFA8E30048325D /* LoginViewController.swift */; };
 		6E830BC429BFA8F20048325D /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E830BC329BFA8F20048325D /* ChatViewController.swift */; };
+		6EC1A85129C4A04100DE54D9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6EC1A85029C4A04100DE54D9 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		6E830BBF29BFA8D30048325D /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		6E830BC129BFA8E30048325D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		6E830BC329BFA8F20048325D /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		6EC1A85029C4A04100DE54D9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D79C7BA5F612DC9EFFCED0D8 /* Pods-FlashChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlashChat.release.xcconfig"; path = "Target Support Files/Pods-FlashChat/Pods-FlashChat.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -56,7 +58,6 @@
 				14B121206AE441B2A47E6631 /* Pods-FlashChat.debug.xcconfig */,
 				D79C7BA5F612DC9EFFCED0D8 /* Pods-FlashChat.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -106,6 +107,7 @@
 				6E830BA029BF0C970048325D /* Assets.xcassets */,
 				6E830BA229BF0C970048325D /* LaunchScreen.storyboard */,
 				6E830BA529BF0C970048325D /* Info.plist */,
+				6EC1A85029C4A04100DE54D9 /* GoogleService-Info.plist */,
 			);
 			path = FlashChat;
 			sourceTree = "<group>";
@@ -154,6 +156,8 @@
 			dependencies = (
 			);
 			name = FlashChat;
+			packageProductDependencies = (
+			);
 			productName = FlashChat;
 			productReference = 6E830B9429BF0C910048325D /* FlashChat.app */;
 			productType = "com.apple.product-type.application";
@@ -164,7 +168,6 @@
 		6E830B8C29BF0C910048325D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1400;
 				LastUpgradeCheck = 1400;
 				TargetAttributes = {
@@ -182,6 +185,8 @@
 				Base,
 			);
 			mainGroup = 6E830B8B29BF0C910048325D;
+			packageReferences = (
+			);
 			productRefGroup = 6E830B9529BF0C910048325D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -198,6 +203,7 @@
 			files = (
 				6E830BA429BF0C970048325D /* LaunchScreen.storyboard in Resources */,
 				6E830BA129BF0C970048325D /* Assets.xcassets in Resources */,
+				6EC1A85129C4A04100DE54D9 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,7 +410,10 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.gii.FlashChat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -429,7 +438,10 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.gii.FlashChat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
