@@ -35,6 +35,7 @@ class RegisterViewController: UIViewController {
         field.backgroundColor = .gray
         field.textAlignment = .center
         field.returnKeyType = .done
+        field.isSecureTextEntry = true
         field.translatesAutoresizingMaskIntoConstraints = false
         
         return field
