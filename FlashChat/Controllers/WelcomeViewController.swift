@@ -37,7 +37,7 @@ class WelcomeViewController: UIViewController {
     
     private var logInButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Login", for: .normal)
+        button.setTitle("Log In", for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 25)
         button.backgroundColor = .systemBlue
         button.tintColor = .white

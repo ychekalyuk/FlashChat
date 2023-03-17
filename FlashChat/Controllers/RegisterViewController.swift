@@ -52,6 +52,18 @@ class RegisterViewController: UIViewController {
         return button
     }()
     
+    private let chatLabel: UILabel = {
+        let label = UILabel()
+        label.text = ""
+        label.textColor = .black
+        label.font = UIFont.systemFont(ofSize: 25)
+        label.textAlignment = .center
+        label.numberOfLines = 2
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        return label
+    }()
+    
     //MARK: - life cycle funcs
 
     override func viewDidLoad() {
@@ -72,7 +84,7 @@ class RegisterViewController: UIViewController {
         
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
             if let error = error {
-                print(error)
+                self.chatLabel.text = error.localizedDescription
             } else {
                 let chatViewController = ChatViewController()
                 chatViewController.modalPresentationStyle = .fullScreen
@@ -93,6 +105,7 @@ extension RegisterViewController {
         view.addSubview(emailTextField)
         view.addSubview(passwordTextField)
         view.addSubview(registerButton)
+        view.addSubview(chatLabel)
     }
 }
 
@@ -120,6 +133,13 @@ extension RegisterViewController {
             registerButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 30),
             registerButton.widthAnchor.constraint(equalToConstant: 300),
             registerButton.heightAnchor.constraint(equalToConstant: 48)
+        ])
+        
+        NSLayoutConstraint.activate([
+            chatLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+            chatLabel.topAnchor.constraint(equalTo: registerButton.bottomAnchor, constant: 10),
+            chatLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+            chatLabel.heightAnchor.constraint(equalToConstant: 100)
         ])
     }
 }

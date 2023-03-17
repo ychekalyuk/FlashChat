@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class LoginViewController: UIViewController {
     
@@ -51,6 +52,18 @@ class LoginViewController: UIViewController {
         return button
     }()
     
+    private let chatLabel: UILabel = {
+        let label = UILabel()
+        label.text = ""
+        label.textColor = .black
+        label.font = UIFont.systemFont(ofSize: 25)
+        label.textAlignment = .center
+        label.numberOfLines = 2
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        return label
+    }()
+    
     //MARK: - life cycle funcs
 
     override func viewDidLoad() {
@@ -65,9 +78,19 @@ class LoginViewController: UIViewController {
     //MARK: - flow funcs
     
     @objc private func loginButtonTaped() {
-        let chatViewController = ChatViewController()
-        chatViewController.modalPresentationStyle = .fullScreen
-        navigationController?.pushViewController(chatViewController, animated: true)
+        guard let email = emailTextField.text, let password = passwordTextField.text else {
+            return
+        }
+        
+        Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
+            if let error = error {
+                self.chatLabel.text = error.localizedDescription
+            } else {
+                let chatViewController = ChatViewController()
+                chatViewController.modalPresentationStyle = .fullScreen
+                self.navigationController?.pushViewController(chatViewController, animated: true)
+            }            
+        }
     }
     
     //MARK: - public
@@ -82,6 +105,7 @@ extension LoginViewController {
         view.addSubview(emailTextField)
         view.addSubview(passwordTextField)
         view.addSubview(loginButton)
+        view.addSubview(chatLabel)
     }
 }
 
@@ -109,6 +133,13 @@ extension LoginViewController {
             loginButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 30),
             loginButton.widthAnchor.constraint(equalToConstant: 300),
             loginButton.heightAnchor.constraint(equalToConstant: 48)
+        ])
+        
+        NSLayoutConstraint.activate([
+            chatLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+            chatLabel.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 10),
+            chatLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+            chatLabel.heightAnchor.constraint(equalToConstant: 100)
         ])
     }
 }
