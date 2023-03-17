@@ -23,7 +23,7 @@ class WelcomeViewController: UIViewController {
         return label
     }()
     
-    private var registerButton: UIButton = {
+    lazy var registerButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Register", for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 25)
@@ -35,7 +35,7 @@ class WelcomeViewController: UIViewController {
         return button
     }()
     
-    private var logInButton: UIButton = {
+    lazy var logInButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Log In", for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 25)

@@ -41,7 +41,7 @@ class LoginViewController: UIViewController {
         return field
     }()
     
-    private var loginButton: UIButton = {
+    lazy var loginButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Log In", for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 25)
