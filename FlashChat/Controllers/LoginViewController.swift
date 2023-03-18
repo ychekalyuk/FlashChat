@@ -86,9 +86,8 @@ class LoginViewController: UIViewController {
             if let error = error {
                 self.chatLabel.text = error.localizedDescription
             } else {
-                let chatViewController = ChatViewController()
-                chatViewController.modalPresentationStyle = .fullScreen
-                self.navigationController?.pushViewController(chatViewController, animated: true)
+                let controller = ChatViewController()
+                self.navigationController?.pushViewController(controller, animated: true)
             }            
         }
     }

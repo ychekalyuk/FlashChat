@@ -42,7 +42,7 @@ class WelcomeViewController: UIViewController {
         button.backgroundColor = .systemBlue
         button.tintColor = .white
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.addTarget(self, action: #selector(registerButtonTaped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(logInButtonTaped), for: .touchUpInside)
         
         return button
     }()
@@ -73,15 +73,13 @@ class WelcomeViewController: UIViewController {
     //MARK: - flow funcs
     
     @objc private func registerButtonTaped() {
-        let registerViewController = RegisterViewController()
-        registerViewController.modalPresentationStyle = .fullScreen
-        navigationController?.pushViewController(registerViewController, animated: true)
+        let controller = RegisterViewController()
+        navigationController?.pushViewController(controller, animated: true)
     }
     
     @objc private func logInButtonTaped() {
-        let loginViewController = LoginViewController()
-        loginViewController.modalPresentationStyle = .fullScreen
-        navigationController?.pushViewController(loginViewController, animated: true)
+        let controller = LoginViewController()
+        navigationController?.pushViewController(controller, animated: true)
     }
     
     //MARK: - public
