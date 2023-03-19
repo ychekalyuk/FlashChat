@@ -8,55 +8,37 @@
 import UIKit
 
 class ChatViewController: UIViewController {
-    
     //MARK: - let/var
-    
     private let idChatDetailTableViewCell = "idChatDetailTableViewCell"
     
     private let chatTableView: UITableView = {
         let tableView = UITableView()
         tableView.backgroundColor = .none
         tableView.separatorStyle = .none
+        tableView.delegate = self
+        tableView.dataSource = self
         tableView.bounces = false
         tableView.showsVerticalScrollIndicator = false
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        
         return tableView
     }()
     
-    var sendMessageUIView = SendMessageUIView()
-    
-    var navigationBar = UINavigationBar()
+    let sendMessageUIView = SendMessageUIView()
+ 
+    let navigationBar = UINavigationBar()
     
     //MARK: - life cycle funcs
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         view.backgroundColor = .white
-        
         setupViews()
         setConstraints()
-        
-        setDelegate()
-        
         chatTableView.register(ChatTableViewCell.self, forCellReuseIdentifier: idChatDetailTableViewCell)
     }
-    
-    //MARK: - flow funcs
-    
-    private func setDelegate() {
-        chatTableView.delegate = self
-        chatTableView.dataSource = self
-    }
-    
-    //MARK: - public
 }
 
 //MARK: - extensions setupViews
-
-extension ChatViewController {
-    
+private extension ChatViewController {
     private func setupViews() {
         view.addSubview(chatTableView)
         view.addSubview(sendMessageUIView)
@@ -65,9 +47,7 @@ extension ChatViewController {
 }
 
 //MARK: - extensions setConstraints
-
-extension ChatViewController {
-    
+private extension ChatViewController {
     private func setConstraints() {
         NSLayoutConstraint.activate([
             chatTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -89,27 +69,23 @@ extension ChatViewController {
 }
 
 //MARK: - UITableViewDataSource
-
 extension ChatViewController: UITableViewDataSource {
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         10
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(
+        guard let cell = tableView.dequeueReusableCell(
             withIdentifier: idChatDetailTableViewCell,
             for: indexPath
-        ) as! ChatTableViewCell
+        ) as? ChatTableViewCell else { return UITableViewCell }
         
         return cell
     }
 }
 
 //MARK: - UITableViewDelegate
-
 extension ChatViewController: UITableViewDelegate {
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         100
     }
